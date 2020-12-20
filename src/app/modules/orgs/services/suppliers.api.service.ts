@@ -6,7 +6,7 @@ import { Serializer } from "src/app/core/services/generic/serializer";
 import { ObservableStore } from "src/app/core/store/store";
 
 @Injectable({ providedIn: "root" })
-export class SuppliersService extends ObservableStore<Supplier[]> {
+export class SuppliersApiService extends ObservableStore<Supplier[]> {
   private _suppliers: Supplier[] = [];
   suppliersUrl = "./suppliers.json";
   private genericHttpService;

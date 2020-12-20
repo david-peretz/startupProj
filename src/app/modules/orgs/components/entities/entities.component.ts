@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from "@angular/core";
 import { Observable } from "rxjs";
 import { Supplier } from "../../interfaces/supplier.resource";
 import { SearchService } from "../../services/search.service";
-import { SuppliersService } from "../../services/suppliers.service";
+import { SuppliersApiService } from "../../services/suppliers.api.service";
 
 @Component({
   selector: "entities",
-  templateUrl: "./entities.component.html"
+  templateUrl: "./entities.component.html",
 })
 export class EntitiesComponent implements OnInit {
   searchText: string;
@@ -16,7 +16,7 @@ export class EntitiesComponent implements OnInit {
 
   constructor(
     searchService: SearchService,
-    private suppliersSrv: SuppliersService
+    private suppliersSrv: SuppliersApiService
   ) {
     this.searchText$ = searchService.getState();
     console.log(this.searchText$);
@@ -29,7 +29,7 @@ export class EntitiesComponent implements OnInit {
 
     console.log(this.models);
 
-    this.searchText$.subscribe(searchData => {
+    this.searchText$.subscribe((searchData) => {
       this.searchText = searchData[0].searchText;
     });
   }

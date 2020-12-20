@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 import { Routes, RouterModule } from "@angular/router";
 import { EntitiesComponent } from "./components/entities/entities.component";
 import { EntityDetailComponent } from "./components/entity-detail/entity-detail.component";
-import { SuppliersService } from "./services/suppliers.service";
+import { SuppliersApiService } from "./services/suppliers.api.service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FilterPipe } from "src/app/core/pipes/filter.pipe";
 import { CrudFormComponent } from "./components/entity-detail/crud-form.component";
@@ -31,6 +31,6 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  providers: [SuppliersService, AttributesService, SearchService]
+  providers: [SuppliersApiService, AttributesService, SearchService]
 })
 export class OrgsModule {}
